@@ -11,4 +11,7 @@ class Persona {
     class var edad : Int { // Variables computadas
         return 25
     }
+    
+    static: is a type property requirement
+    var: is a instance property requirement
 }
