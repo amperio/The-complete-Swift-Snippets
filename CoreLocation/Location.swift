@@ -12,6 +12,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // Solicitar permiso al usuario para poder usar los servicios de ubicacion, la descripcion que se muestre, sera de la key: 'Location when In Use Usage Description' del archivo info.plist
+        // Texto que se mostrara: "We need your location to get the current weather from where you are"
         locationManager.requestWhenInUseAuthorization()
         
         // Assign the delegate before starting any location services
