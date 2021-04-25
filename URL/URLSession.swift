@@ -26,6 +26,7 @@ class ViewController: UIViewController {
             let sessionTask = urlsession.dataTask(with: url, completionHandler: {(data,response,error) in
                 if error != nil {
                     print(error!)
+                    retutn
                 }
                 if let datasession = data{
                     
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
             URLSession.shared.dataTask(with: url, completionHandler: {(data,response,error)in
                 if error != nil{
                     print(error!)
+                    return
                 }
                 if let datasession = data{
                     print(datasession)
