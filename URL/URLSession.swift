@@ -9,6 +9,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // WITH THE DEFAULT KIND OF SESSION ------------------------------------------------------------------------------------------
+    
     @IBAction func btn_request(_ sender: UIButton) {
         
         // Valor que identifica la ubicacion de recursos en un servidor web o la ruta a un archivo local
@@ -36,6 +38,29 @@ class ViewController: UIViewController {
             // Reanuda la tarea si ha sido suspendida
             // TAREAS NUEVAS INICIALIZADAS, EMPIEZAN EN ESTADO SUSPENDIDO, POR LO QUE HAY QUE LLAMAR A ESTE METODO
             sessionTask.resume()
+        }
+    }
+    
+    // WITH THE SINGLETON SHARED KIND OF SESSION -----------------------------------------------------------------------------------
+    
+    @IBAction func btn_request(_ sender: UIButton) {
+        
+        // Valor que identifica la ubicacion de recursos en un servidor web o la ruta a un archivo local
+        let api = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=b3ceaef88d93238d6f3c0cfe6212bf48&q=guayaquil"
+        if let url = URL(string: api){
+            
+            // URLSession: Coordina grupos de tareas de transferencia de datos en la red
+            // .SHARED: Session for basic request
+            // .DATATASK: Se crea tarea de traer contenido de una URL
+            URLSession.shared.dataTask(with: url, completionHandler: {(data,response,error)in
+                if error != nil{
+                    print(error!)
+                }
+                if let datasession = data{
+                    print(datasession)
+                }
+            }).resume() // Reanuda la tarea si ha sido suspendida
+            // TAREAS NUEVAS INICIALIZADAS, EMPIEZAN EN ESTADO SUSPENDIDO, POR LO QUE HAY QUE LLAMAR A ESTE METODO
         }
     }
 }
