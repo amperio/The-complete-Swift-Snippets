@@ -21,6 +21,7 @@
         // .decode: Decodifica la instancia del tipo dado (Modelo) con el resultado (datos)
         
         do{
+            // Para referirse al tipo de una Objeto, utilizamos el '.self'
             let decodedData = try JSONDecoder().decode(Modelo.self, from: datos) // MODELLED THE RESPOND 'DATOS' TO 'DECODEDATA'
             
             // La variable del tipo dado se inicializara con los volores obtenidos del Jason, siempre y cuando sean iguales tanto la variable del tipo como la key en el Jason. (debe haber MATCH)
