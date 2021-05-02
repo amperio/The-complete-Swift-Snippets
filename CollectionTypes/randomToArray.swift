@@ -4,7 +4,7 @@ import Foundation
 // Form 1
 let listita = ["Juan","Edith","Paula","Stefania"]
 let elegido = listita.randomElement()
-print(elegido ?? "Error")
+print(elegido ?? "Error") // Nil-Coalescing Operator
 // Form 2
 let indice = Int.random(0...listita.count)
 print(listita[indice])
