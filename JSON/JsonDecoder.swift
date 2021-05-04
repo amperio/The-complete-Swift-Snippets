@@ -95,3 +95,29 @@ struct Main: Decodable {
   "name": "Guayaquil",
   "cod": 200
 }
+
+
+// Best practices
+
+// Codable is a typealias for Encodable and Decodable
+struct Book: Codable {
+    let title: String
+    let numberOfPages: Int
+    let author: String
+}
+
+// Encode a instance to a JSON object:
+do {
+    let book = Book(title: "The Power", numberOfPages: 50, author: "Juan")
+    let encoder = JSONEncoder()
+    let data = try encoder.encode(book)
+    print(data) 
+    } catch error {
+        print("ERROR: \(error.localizedDescription)")
+    }
+
+// Decode JSON object to an instance
+    let decoder = JSONDecoder()
+    let decodedInstance = try decoder.decode(Book.type, from: data)
+}
+
